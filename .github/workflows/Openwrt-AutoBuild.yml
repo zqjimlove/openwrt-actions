@@ -6,8 +6,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'config.diff'
+    # paths:
+    #   - 'config.diff'
   schedule:
     - cron: 0 7 * * *
   watch:
