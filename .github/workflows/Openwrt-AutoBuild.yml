@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'start'
   schedule:
     - cron: 0 7 * * *
   watch:
@@ -23,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [x64-main,x64-1907]
+        target: [x64-1907]
     
     steps:
     - name: Checkout
@@ -109,7 +111,7 @@ jobs:
     - name: Download latest config
       run: |
         cd openwrt
-        curl -skL https://raw.githubusercontent.com/Lienol/openwrt-actions/main/user/${{matrix.target}}/config.diff -o .config
+        curl -skL https://raw.githubusercontent.com/zqjimlove/openwrt-actions/main/user/${{matrix.target}}/config.diff -o .config
         
     - name: Download package
       id: package
